@@ -1,19 +1,16 @@
----
 services:
   qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:latest
     container_name: qbittorrent
+    image: ghcr.io/hotio/qbittorrent
+    ports:
+      - "9090:9090"
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=TZ=America/Denver
-      - WEBUI_PORT=9090
-      - TORRENTING_PORT=6881
+      - UMASK=002
+      - TZ=America/Denver
+      - WEBUI_PORTS=9090/tcp,9090/udp
     volumes:
       - /myDockers/qBittorrent/appdata:/config
-      - /mnt/Big Olive/s2mccaffr/qbittorrent-downloads:/data/downloads
-    ports:
-      - 9090:9090
-      - 6881:6881
-      - 6881:6881/udp
+      - /mnt/Big Olive/s2mccaffr/downloads-saved/qbittorrent-downloads:/data/downloads
     restart: unless-stopped
