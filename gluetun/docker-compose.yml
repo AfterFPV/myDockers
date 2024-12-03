@@ -1,0 +1,29 @@
+services:
+  protonvpn:
+    image: qmcgaw/gluetun:latest
+    container_name: gluetun
+    cap_add:
+      - NET_ADMIN
+    network_mode: bridge
+    ports:
+      - 8000:8000 # HTTP Control Server
+      - 8888:8888/tcp # HTTP Proxy
+      - 9865:9865 #qbit
+      - 6881:6881 #qbit
+      - 6881:6881/udp #qbit
+    volumes:
+      - /myDockers/gluetun/:/gluetun
+      - /myDockers/gluetun/Proton_VPN_WireGuard_MX-MX-47.conf:/gluetun/config.conf:ro
+    environment:
+      - VPN_SERVICE_PROVIDER=custom
+      - VPN_TYPE=wireguard
+      - VPN_ENDPOINT_IP=84.252.113.9
+      - VPN_ENDPOINT_PORT=51820
+      - WIREGUARD_PUBLIC_KEY=${MyPublicKey}
+      - WIREGUARD_PRIVATE_KEY=${MyPrivateKey}
+      - WIREGUARD_ADDRESSES=10.2.0.2/32
+      - HTTPPROXY=on
+      - HTTPPROXY_USER=
+      - HTTPPROXY_PASSWORD=
+      - HTTPPROXY_STEALTH=off
+    restart: unless-stopped
