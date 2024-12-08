@@ -17,13 +17,16 @@ services:
     environment:
       - VPN_SERVICE_PROVIDER=custom
       - VPN_TYPE=wireguard
-      - VPN_ENDPOINT_IP=84.252.113.9
-      - VPN_ENDPOINT_PORT=51820
+      - WIREGUARD_ENDPOINT_IP=${Endpoint}
+      - WIREGUARD_ENDPOINT_PORT=${Port}
       - WIREGUARD_PUBLIC_KEY=${MyPublicKey}
       - WIREGUARD_PRIVATE_KEY=${MyPrivateKey}
-      - WIREGUARD_ADDRESSES=10.2.0.2/32
+      - WIREGUARD_ADDRESSES=${Address}
       - HTTPPROXY=on
       - HTTPPROXY_USER=
       - HTTPPROXY_PASSWORD=
       - HTTPPROXY_STEALTH=off
+      - DNS_ADDRESS=${DNS}
+    devices:
+      - /dev/net/tun:/dev/net/tun
     restart: unless-stopped
