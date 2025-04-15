@@ -11,9 +11,14 @@ services:
       - 9865:9865 #qbit
       - 6881:6881 #qbit
       - 6881:6881/udp #qbit
+      - 7878:7878 #radarr
+      - 8989:8989 #sonarr
+      - 6767:6767 #bazarr
+      - 8686:8686 #lidarr
+      - 9696:9696 #prowlarr
     volumes:
       - /myDockers/gluetun/:/gluetun
-      - /myDockers/gluetun/Proton_VPN_WireGuard_MX-MX-47.conf:/gluetun/config.conf:ro
+      - /myDockers/gluetun/wg-CH-MX-1.conf:/gluetun/config.conf:ro
     environment:
       - VPN_SERVICE_PROVIDER=custom
       - VPN_TYPE=wireguard
