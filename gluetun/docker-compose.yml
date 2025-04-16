@@ -18,7 +18,7 @@ services:
       - 9696:9696 #prowlarr
     volumes:
       - /myDockers/gluetun/:/gluetun
-      - /myDockers/gluetun/wg-CH-MX-1.conf:/gluetun/config.conf:ro
+      - /myDockers/gluetun/config.conf:/gluetun/config.conf:ro
     environment:
       - VPN_SERVICE_PROVIDER=custom
       - VPN_TYPE=wireguard
