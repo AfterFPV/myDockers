@@ -10,10 +10,10 @@ services:
       - ./config:/config
       - ./cache:/cache
       - type: bind
-        source: /mnt/Big Olive/s2mccaffr/Videos/Full Movies
+        source: /home/mccaffrey/Videos/Full Movies
         target: /Full Movies
       - type: bind
-        source: /mnt/Big Olive/s2mccaffr/Videos/Series
+        source: /mnt/Samsung-990-EVO/Series
         target: /Series
         read_only: true
     restart: 'unless-stopped'

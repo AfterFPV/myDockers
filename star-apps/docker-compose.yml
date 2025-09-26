@@ -5,9 +5,8 @@ services:
     restart: unless-stopped
     logging:
       driver: json-file
-#    ports:
-#     - 7878:7878
-    network_mode: "container:gluetun"
+    ports:
+     - 7878:7878
     environment:
       - PUID=1000
       - PGID=1000
@@ -15,17 +14,16 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${CONFIG_LOCATION}/radarr:/config
-      - ${UPLOAD_LOCATION}:/data
-      - /mnt/Big Olive/s2mccaffr/downloads-saved/qbittorrent-downloads:/data/downloads
+      - /home/mccaffrey/Videos/Full Movies:/Full Movies
+      - /mnt/Samsung-990-EVO/Series:/Series
   sonarr:
     container_name: sonarr
     image: ghcr.io/hotio/sonarr:latest
     restart: unless-stopped
     logging:
       driver: json-file
-    network_mode: "container:gluetun"
-#   ports:
-#     - 8989:8989
+    ports:
+     - 8989:8989
     environment:
       - PUID=1000
       - PGID=1000
@@ -33,59 +31,5 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${CONFIG_LOCATION}/sonarr:/config
-      - ${UPLOAD_LOCATION}:/data
-      - /mnt/Big Olive/s2mccaffr/downloads-saved/qbittorrent-downloads:/data/downloads
-  bazarr:
-    container_name: bazarr
-    image: ghcr.io/hotio/bazarr:latest
-    restart: unless-stopped
-    logging:
-      driver: json-file
-    network_mode: "container:gluetun"
-#   ports:
-#     - 6767:6767
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=${TZ}
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - ${CONFIG_LOCATION}/bazarr:/config
-      - ${UPLOAD_LOCATION}:/data
-      - /mnt/Big Olive/s2mccaffr/downloads-saved/qbittorrent-downloads:/data/downloads
-  lidarr:
-    container_name: lidarr
-    image: ghcr.io/hotio/lidarr:latest
-    restart: unless-stopped
-    logging:
-      driver: json-file
-    network_mode: "container:gluetun"
-#   ports:
-#     - 8686:8686
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=${TZ}
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - ${CONFIG_LOCATION}/lidarr:/config
-      - ${UPLOAD_LOCATION}:/data
-      - /mnt/Big Olive/s2mccaffr/downloads-saved/qbittorrent-downloads:/data/downloads
-  prowlarr:
-    container_name: prowlarr
-    image: ghcr.io/hotio/prowlarr:latest
-    restart: unless-stopped
-    logging:
-      driver: json-file
-    network_mode: "container:gluetun"
-#   ports:
-#     - 9696:9696
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=${TZ}
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - ${CONFIG_LOCATION}/prowlarr:/config
-      - ${UPLOAD_LOCATION}:/data
-      - /mnt/Big Olive/s2mccaffr/downloads-saved/qbittorrent-downloads:/data/downloads
+      - /home/mccaffrey/Videos/Full Movies:/Full Movies
+      - /mnt/Samsung-990-EVO/Series:/Series
