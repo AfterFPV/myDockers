@@ -16,6 +16,10 @@ services:
         source: /mnt/Samsung-990-EVO/Series
         target: /Series
         read_only: true
+      - type: bind
+        source: /mnt/Samsung-990-EVO/Full Movies2
+        target: /Full Movies2
+        read_only: true
     restart: 'unless-stopped'
     # Optional - may be necessary for docker healthcheck to pass if running in host network mode
     extra_hosts:

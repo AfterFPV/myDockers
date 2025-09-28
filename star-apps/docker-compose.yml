@@ -16,6 +16,7 @@ services:
       - ${CONFIG_LOCATION}/radarr:/config
       - /home/mccaffrey/Videos/Full Movies:/Full Movies
       - /mnt/Samsung-990-EVO/Series:/Series
+      - /mnt/Samsung-990-EVO/Full Movies2:/Full Movies2
   sonarr:
     container_name: sonarr
     image: ghcr.io/hotio/sonarr:latest
@@ -33,3 +34,4 @@ services:
       - ${CONFIG_LOCATION}/sonarr:/config
       - /home/mccaffrey/Videos/Full Movies:/Full Movies
       - /mnt/Samsung-990-EVO/Series:/Series
+      - /mnt/Samsung-990-EVO/Full Movies2:/Full Movies2
