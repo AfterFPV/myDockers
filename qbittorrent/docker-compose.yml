@@ -10,5 +10,5 @@ services:
       - WEBUI_PORT=9865
     volumes:
       - /myDockers/qbittorrent/appdata:/config
-      - /mnt/Big Olive/s2mccaffr/downloads-saved/qbittorrent-downloads:/data/downloads
+      - /myDockers/qbittorrent/downloads:/data/downloads
     restart: unless-stopped

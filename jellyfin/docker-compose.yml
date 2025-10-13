@@ -10,10 +10,10 @@ services:
       - ./config:/config
       - ./cache:/cache
       - type: bind
-        source: /mnt/Big Olive/s2mccaffr/Videos/Full Movies
+        source: /mnt/SG Davis Dr/s2mccaffr/Videos/Full Movies
         target: /Full Movies
       - type: bind
-        source: /mnt/Big Olive/s2mccaffr/Videos/Series
+        source: /mnt/SG Davis Dr/s2mccaffr/Videos/Series
         target: /Series
         read_only: true
     restart: 'unless-stopped'

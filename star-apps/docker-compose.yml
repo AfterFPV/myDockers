@@ -15,8 +15,8 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${CONFIG_LOCATION}/radarr:/config
-      - ${UPLOAD_LOCATION}:/data
-      - /mnt/Big Olive/s2mccaffr/downloads-saved/qbittorrent-downloads:/data/downloads
+      - ${DOWNLOAD_LOCATION}:/data/downloads
+      - ${VIDEO_LOCATION}:/data/Videos
   sonarr:
     container_name: sonarr
     image: ghcr.io/hotio/sonarr:latest
@@ -33,8 +33,8 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${CONFIG_LOCATION}/sonarr:/config
-      - ${UPLOAD_LOCATION}:/data
-      - /mnt/Big Olive/s2mccaffr/downloads-saved/qbittorrent-downloads:/data/downloads
+      - ${DOWNLOAD_LOCATION}:/data/downloads
+      - ${VIDEO_LOCATION}:/data/Videos
   bazarr:
     container_name: bazarr
     image: ghcr.io/hotio/bazarr:latest
@@ -51,8 +51,8 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${CONFIG_LOCATION}/bazarr:/config
-      - ${UPLOAD_LOCATION}:/data
-      - /mnt/Big Olive/s2mccaffr/downloads-saved/qbittorrent-downloads:/data/downloads
+      - ${DOWNLOAD_LOCATION}:/data/downloads
+      - ${VIDEO_LOCATION}:/data/Videos
   lidarr:
     container_name: lidarr
     image: ghcr.io/hotio/lidarr:latest
@@ -69,8 +69,8 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${CONFIG_LOCATION}/lidarr:/config
-      - ${UPLOAD_LOCATION}:/data
-      - /mnt/Big Olive/s2mccaffr/downloads-saved/qbittorrent-downloads:/data/downloads
+      - ${DOWNLOAD_LOCATION}:/data/downloads
+      - ${MUSIC_LOCATION}:/data/Music
   prowlarr:
     container_name: prowlarr
     image: ghcr.io/hotio/prowlarr:latest
@@ -87,5 +87,5 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${CONFIG_LOCATION}/prowlarr:/config
-      - ${UPLOAD_LOCATION}:/data
-      - /mnt/Big Olive/s2mccaffr/downloads-saved/qbittorrent-downloads:/data/downloads
+      - ${DOWNLOAD_LOCATION}:/data/downloads
+      - ${VIDEO_LOCATION}:/data/Videos
