@@ -14,9 +14,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${CONFIG_LOCATION}/radarr:/config
-      - /home/mccaffrey/Videos/Full Movies:/Full Movies
-      - /mnt/Samsung-990-EVO/Series:/Series
-      - /mnt/Samsung-990-EVO/Full Movies2:/Full Movies2
+      - /mnt/Samsung9100/Movies:/Movies
   sonarr:
     container_name: sonarr
     image: ghcr.io/hotio/sonarr:latest
@@ -32,6 +30,4 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${CONFIG_LOCATION}/sonarr:/config
-      - /home/mccaffrey/Videos/Full Movies:/Full Movies
-      - /mnt/Samsung-990-EVO/Series:/Series
-      - /mnt/Samsung-990-EVO/Full Movies2:/Full Movies2
+      - /mnt/Samsung9100/Shows:/Shows
