@@ -1,0 +1,22 @@
+# APPNICENAME=FileBrowser
+# APPDESCRIPTION=A File Browser
+
+services:
+  filebrowser:
+    image: filebrowser/filebrowser:latest
+    container_name: filebrowser
+    restart: unless-stopped
+
+    # Run as your own user to avoid permission issues.
+    # Replace '1000:1000' with the output of the `id` command in your terminal.
+    user: "1000:1000"
+    
+    ports:
+      # Access File Browser at http://localhost:8090
+      # The format is "HOST_PORT:CONTAINER_PORT"
+      - "8095:80"
+      
+    volumes:
+      - /:/srv
+      - ./database:/database
+      - ./config:/config

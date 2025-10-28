@@ -1,3 +1,5 @@
+filebrowser/config
+filebrowser/database
 immich-app/library
 immich-app/postgres
 jellyfin/cache
