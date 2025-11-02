@@ -1,0 +1,14 @@
+services:
+  jellyseerr:
+    image: fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
+    environment:
+      # REQUIRED: Set your timezone
+      - TZ=America/Denver
+    ports:
+      # HOST_PORT:CONTAINER_PORT - Change the first port if 5055 is in use
+      - 5055:5055 
+    volumes:
+      # Change /path/to/appdata/config to your host configuration path
+      - ./config:/app/config 
+    restart: unless-stopped
