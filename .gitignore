@@ -1,5 +1,9 @@
+gluetun/config.conf
+gluetun/.env
+gluetun/servers.json
 immich-app/library
 immich-app/postgres
 jellyfin/cache
 jellyfin/config
+qbittorrent/appdata
 star-apps/config

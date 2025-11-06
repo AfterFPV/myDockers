@@ -5,8 +5,9 @@ services:
     restart: unless-stopped
     logging:
       driver: json-file
-    ports:
-     - 7878:7878
+#    ports:
+#     - 7878:7878
+    network_mode: "container:gluetun"
     environment:
       - PUID=1000
       - PGID=1000
@@ -15,14 +16,17 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ${CONFIG_LOCATION}/radarr:/config
       - /mnt/Samsung9100/Movies:/Movies
+      - /data/Movies2:/Movies2
+      - ${DOWNLOAD_LOCATION}:/downloads
   sonarr:
     container_name: sonarr
     image: ghcr.io/hotio/sonarr:latest
     restart: unless-stopped
     logging:
       driver: json-file
-    ports:
-     - 8989:8989
+#    ports:
+#     - 8989:8989
+    network_mode: "container:gluetun"
     environment:
       - PUID=1000
       - PGID=1000
@@ -31,3 +35,21 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ${CONFIG_LOCATION}/sonarr:/config
       - /mnt/Samsung9100/Shows:/Shows
+      - /data/Shows2:/Shows2
+      - ${DOWNLOAD_LOCATION}:/downloads
+  prowlarr:
+    container_name: prowlarr
+    image: ghcr.io/hotio/prowlarr:latest
+    restart: unless-stopped
+    logging:
+      driver: json-file
+#    ports:
+#      - 9696:9696
+    network_mode: "container:gluetun"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${CONFIG_LOCATION}/prowlarr:/config

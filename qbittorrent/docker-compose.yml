@@ -1,0 +1,14 @@
+services:
+  qbittorrent:
+    container_name: qbittorrent
+    image: lscr.io/linuxserver/qbittorrent:latest
+    network_mode: "container:gluetun"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Los_Angeles
+      - WEBUI_PORT=9865
+    volumes:
+      - /myDockers/qbittorrent/appdata:/config
+      - /myDockers/qbittorrent/downloads:/downloads
+    restart: unless-stopped

@@ -12,9 +12,18 @@ services:
       - type: bind
         source: /mnt/Samsung9100/Movies
         target: /Movies
+        read_only: true
       - type: bind
         source: /mnt/Samsung9100/Shows
         target: /Shows
+        read_only: true
+      - type: bind
+        source: /data/Movies2
+        target: /Movies2
+        read_only: true
+      - type: bind
+        source: /data/Shows2
+        target: /Shows2
         read_only: true
     restart: 'unless-stopped'
     # Optional - may be necessary for docker healthcheck to pass if running in host network mode
