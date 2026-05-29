@@ -10,7 +10,7 @@ services:
     ports:
       - 8080:80
     volumes:
-      - /var/www/html/
+      - 25c63ed1569c197dc2cd11811c18854c7a1694663c615ece574ae11c696fab6a:/var/www/html/
       - ./LocalSettings.php:/var/www/html/LocalSettings.php
   database:
     image: mysql:5.7
@@ -23,8 +23,13 @@ services:
       MYSQL_USER: wikimedia
       MYSQL_PASSWORD: wikimedia
     volumes:
-      - /var/lib/mysql
+      - 08eea6d3b86926bb5e27a2e248c4b0b065ecf04f897cb30834fe1c48622e8244:/var/lib/mysql
 networks:
   docker_network:
     driver: bridge
 
+volumes:
+  25c63ed1569c197dc2cd11811c18854c7a1694663c615ece574ae11c696fab6a:
+    external: true
+  08eea6d3b86926bb5e27a2e248c4b0b065ecf04f897cb30834fe1c48622e8244:
+    external: true

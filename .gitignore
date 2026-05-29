@@ -1,9 +1,13 @@
+.env
+.env.*
 filebrowser/config
 filebrowser/database
+gluetun/servers.json
 immich-app/library
 immich-app/postgres
 jellyfin/cache
 jellyfin/config
+jellyseerr/config
 qbittorrent/appdata
 qbittorrent/downloads
 star-apps/config
